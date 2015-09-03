@@ -5,22 +5,15 @@ public class alternateSqSum {
 
     public static int calculate(int[] arr) {
 
-        int odds = 0;
-        int evens = 1;
-        int arrlength = arr.length;
-        int total = 0;
-
-        while (odds <= (arrlength - 1)) {
-            total = total + arr[odds];
-            odds = odds + 2;
+        int len = arr.length;
+        if (len == 0) return 0;
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            if (i % 2 == 0) sum += arr[i];
+            else sum+= (arr[i] * arr[i]);
         }
 
-        while (evens <= (arrlength-1)) {
-            total = total + (arr[evens]*arr[evens]);
-            evens = evens +2;
-        }
-
-        return total;
+        return sum;
     }
 
 }
