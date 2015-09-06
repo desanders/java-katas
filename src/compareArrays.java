@@ -5,24 +5,21 @@ public class compareArrays {
 
     public static boolean comp(int[] a, int[] b) {
 
-        int[] aCopy = a;
-        int[] bCopy = b;
-
-        int aLength = aCopy.length;
-        int bLength = bCopy.length;
+        int aLength = a.length;
+        int bLength = b.length;
 
         if (aLength != bLength) return false;
 
-        for (int value : aCopy) {
+        for (int value : a) {
             int valueSq = value * value;
             int i = 0;
 
-            for ( i = 0; i < aCopy.length; i++ ) {
-                if (valueSq == bCopy[i]) bCopy[i] = -1;
+            for ( i = 0; i < a.length; i++ ) {
+                if (valueSq == b[i]) b[i] = -1;
             }
         }
 
-        for ( int afterCheck : bCopy) {
+        for ( int afterCheck : b) {
             if ( afterCheck != -1 ) return false;
         }
 
